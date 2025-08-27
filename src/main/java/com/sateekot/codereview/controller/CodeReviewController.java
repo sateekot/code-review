@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class CodeReviewController {
-    private static final Logger
-        LOG = LoggerFactory.getLogger(CodeReviewController.class);
+    private final Logger
+        logger = LoggerFactory.getLogger(getClass());
 
     @Autowired
     CodeReviewService codeReviewService;
