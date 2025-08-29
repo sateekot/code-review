@@ -12,4 +12,11 @@ public class CodeReviewService {
     logger.info("Reviewing code");
     return "Reviewing code";
   }
+
+  public String review(String repository) {
+
+    logger.info("Reviewing code for repository: {}", repository);
+    return "Reviewing code";
+
+  }
 }
