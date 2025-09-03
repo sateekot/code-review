@@ -20,8 +20,8 @@ public class CarRentalService {
 
   public void returnCar() {
     cars_remaining++;
-    log.info("Remaing cars available="+cars_remaining);
-    log.debug("Car returned");
+    log.debug("Remaing cars available="+cars_remaining);
+    log.info("Car returned");
   }
 
   public boolean checkAvailability() {
