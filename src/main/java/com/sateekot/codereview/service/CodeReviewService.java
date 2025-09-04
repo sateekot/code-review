@@ -2,9 +2,7 @@ package com.sateekot.codereview.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Service;
 
-@Service
 public class CodeReviewService {
   private final Logger logger = LoggerFactory.getLogger(getClass());
   private static final String REPOSITORY = "code-review";
@@ -13,5 +11,12 @@ public class CodeReviewService {
   public String review() {
     logger.info("Reviewing code");
     return "Reviewing code";
+  }
+
+  public String review(String repository) {
+
+    logger.info("Reviewing code for repository: {}", repository);
+    return "Reviewing code";
+
   }
 }
