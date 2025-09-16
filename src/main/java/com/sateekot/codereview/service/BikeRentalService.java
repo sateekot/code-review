@@ -2,39 +2,38 @@ package com.sateekot.codereview.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import java.util.*;
 
 public class BikeRentalService {
 
-  private static final int DEFAULT_DURATION = 30;
-  private static final int TOTAL_NO_OF_BIKES = 20;
-
-  private final Logger log = LoggerFactory.getLogger(getClass());
+  private static final Logger LOG = LoggerFactory.getLogger(BikeRentalService.class);
 
   private String bikeBrand;
-  private int bikesRemaining;
+  private int bikes_remaining;
+  private static final int DEFAULT_DURATION = 30;
+  private static final int total_no_of_bikes = 20;
+
 
   public void rentBike() {
-    if (bikesRemaining > 0) {
-      bikesRemaining--;
-      log.info("Remaining bikes available=" + bikesRemaining);
-      log.info("Bike rented");
-    } else {
-      log.warn("No bikes available to rent");
-    }
+    bikes_remaining--;
+    LOG.info("Remaing bikes available="+bikes_remaining);
+    LOG.info("Bike rented");
   }
 
   public void returnBike() {
-    if (bikesRemaining < TOTAL_NO_OF_BIKES) {
-      bikesRemaining++;
-      log.debug("Remaining bikes available=" + bikesRemaining);
-      log.info("Bike returned");
-    } else {
-      log.warn("All bikes are already returned");
-    }
+    bikes_remaining++;
+    LOG.debug("Remaing bikes available="+bikes_remaining);
+    LOG.info("Bike returned");
   }
 
   public boolean checkAvailability() {
-    return bikesRemaining != 0;
+
+    try {
+      return bikes_remaining != 0;
+    } catch (Exception ex) {
+      LOG.error("Exception occured");
+    }
+    return true;
   }
 
 }
